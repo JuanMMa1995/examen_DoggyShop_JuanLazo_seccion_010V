@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css %}
+{% endblock %}
+
+{% block contenido %}
+
+<style>
+.titulo h1
+{
+    color: tomato;
+}
+
+.imgLogo img
+{
+    
+    width: 90px;
+    height: 90px; 
+    margin-left: 10px;
+    
+}
+
+#fabiola
+{
+    background-color: red;
+}
+
+.Jefa img
+{
+    display: block;
+}
+.Jefa h1
+{
+    color: black;
+}
+
+.figura{
+
+
+    width: 400px;
+    border: 1px solid black;
+    background-color: wheat;
+
+}
+
+</style>
+
+<Main>
+  {% load static %}
+    <div class="container-fluid">
+
+        <div class="card" >
+            <div class="titulo">
+                <H1 float-right>Quienes Somos</H1>
+            </div>
+            <div class="imgLogo">
+                <img src="{% static 'img/LogoDoggyshop.jpg' %}">
+            </div>
+        </div>
+
+        <figure class="figura">
+            <div class="card" >
+                <div class="card-body" id="Fabiola">
+                    <div class="Jefa" id="qSomos2">
+                            <img src="{% static 'img/Jefa.jpg' %}" alt="woman" class="img mb-2" id="imgJefa">
+                            <h1>Fabiola Harley</h1>
+
+                            <p>Fabiola Harley fue la fundadora de DoggyShop la primera persona</p>
+                            <p>en creer que esto podria ser realidad y comnce a trabajr con sus</p>
+                            <p>amigas para dar forma a esta gran campaña que trata de cocientisar</p>
+                            <p>buen cuidado de los animas y aporta a la fundacion Arca</p>
+                    </div>
+                </div>
+            </div>
+        </figure>
+
+
+        
+
+        <hr>
+        <br>
+        <br>
+
+        <div class="container-fluid">   
+            <div class="jumbotron jumbotron-fluid" id="Empresa">
+                <h1>Vision de le Empresa</h1> 
+                    <p>
+                        Como empresa buscamos en concientisar sobre el buen cuidado de las mascotas y animales <br>
+                        bajo nuestra expreciencia de a ver trabajado en diferentes ONG de animales. <br>
+                        Queremos crear una comunidad con nuestro clientes para que sientas el compromiso <br>
+                        que tenemos con la comunidad <br>
+                    </p>                 
+            </div>
+        </div>
+
+        <hr>
+        <br>
+        <br>
+        <div class="vArca" id="vArca">
+            <h1>Fundacion Arca prensentacion</h1>
+            <iframe id="Video" width="560" height="315" src="https://www.youtube.com/embed/XUFGRsYAlbs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
+            clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        </div>
+    </Main>
+    {% endblock %}

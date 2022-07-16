@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+{% load humanize %}
+
+<body style="background-color: white;">
+  <br>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+      <div class="d-flex">
+        <h2>Productos</h2> &nbsp;&nbsp;
+        {% if perms.core.add_producto %}
+        <a href="{% url 'agregar_productos' %}" class="btn btn-primary">Agregar Producto</a>&nbsp;&nbsp;
+        {% endif %}
+        {% if perms.core.view_producto %}
+        <a href="{% url 'listar_productos' %}" class="btn btn-primary">Listado de productos</a>&nbsp;&nbsp;
+        {% endif  %}
+        <div>
+          {% include "carro.html" %}
+        </div>
+      </div>
+      <div class="container-fluid">
+        {% csrf_token %}
+        <div class="row">
+          {% for p in productos %}
+          <div class="col-md-3 col-12">
+            <hr>
+            <div class="contenedor_producto">
+              {% if p.imagen %}
+              <img src="{{ p.imagen.url }}" alt="" width="100px" height="100px" style=" margin-left: 60px;" alt="imagen producto">
+              {% endif %}
+              <div class="detalle">
+                <h3>{{ p.nombre | capfirst }}</h3>
+                <h4>{{ p.marca| capfirst }}</h4>
+                <h5>${{ p.precio | intcomma }}</h5>
+              </div style="text-align: center;">
+                {% if perms.core.delete_producto %}
+                <a href="{% url 'eliminar_producto' p.codigo %}" class="btn btn-success btn-sm">Elimiar</a>
+                {% endif %}
+                {% if perms.core.change_producto %}
+                <a href="{% url 'modificar_productos' p.codigo %}" class="btn btn-success btn-sm">Modificar</a>
+                {% endif %}
+                {% for producto in productos %}
+                <a href="{% url 'Add' producto.id %}" class="btn btn-success btn-sm" >Agregar al Carro</a>
+                {% endfor %}
+              </div>
+            <hr>
+          </div>
+          {% endfor %}
+        </div>
+        <hr>
+      </div>
+    </div>
+  </div>
+</div>
+  
+</body>
+
+{% endblock %}
+
+
+
+
+
+
+
+

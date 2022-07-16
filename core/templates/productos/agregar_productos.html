@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+{% load crispy_forms_tags %}
+
+<body style="background-color: white;">
+    <br>
+    <div class="row">
+        <div class="col-12 col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card body">
+                    <br>
+                    <h2>Agregue nuevo Producto</h2>
+                    <form action="" class="form-group" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form | crispy }}
+                        <br>
+                        <button type="submit" id="btnGuardar" class="button btn btn-danger">Guardar</button>
+                        <button type="reset" id="Cancelar" class="button btn btn-danger">Cancelar</button>
+                        <br>
+                    </form>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br> 
+</body>              
+
+
+{% endblock %}
+

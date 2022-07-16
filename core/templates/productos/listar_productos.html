@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+{% load humanize %}
+
+<body style="background-color: white;">
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+            <div style="text-align: center;">
+                <h2>Listado de Productos</h2>
+            </div>
+            <table class="table table-striped table-hover table-responsive-sm">
+                <tr>
+                    <th>codigo</th>
+                    <th>nombre</th>
+                    <th>marca</th>
+                    <th>precio</th>
+                    <th>fec_ven</th>
+                </tr>
+            
+                {% for p in productos %}
+                <tr>
+                    <td>{{ p.codigo | title }}</td>
+                    <td>{{ p.nombre | title}}</td>
+                    <td>{{ p.marca | title}}</td>
+                    <td>{{ p.precio | intcomma }}</td>
+                    <td>{{ p.fec_ven | date}}</td>
+                </tr>
+                {% endfor%}
+            
+            </table>
+        </div>
+    </div>
+    <br>
+</body>
+
+{% endblock %}
